@@ -149,3 +149,4 @@ Un componente EBSI (servidor de recursos) recibe un token de acceso como portado
 1. [Where to begin with OIDC and SIOP](https://medium.com/decentralized-identity/where-to-begin-with-oidc-and-siop-7dd186c89796), Medium Article.
 2. [Self-Issued OpenID Provider v2](https://openid.net/specs/openid-connect-self-issued-v2-1_0.html), OpenID Standard.
 3. [OpenID for Verifiable Presentations](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html), OpenID Standard.
+4. [EBSI Documentation Home](https://ec.europa.eu/digital-building-blocks/wikis/display/EBSIDOC), EBSI.
