@@ -10,10 +10,26 @@ La siguiente figura ilustra donde se pone el foco del estudio.
 
    ![alt text](./img/did-oidc_siop_v2.png "Focus")
 
-   [Código Fuente del diagrama](./img/DID-OIDC_SIOP_sequence_diagram.txt)
-   [Herramienta de edición: PlantUML](https://plantuml.com/)
+- [Código Fuente del diagrama](./img/DID-OIDC_SIOP_sequence_diagram.txt)
+- [Herramienta de edición: PlantUML](https://plantuml.com/)
 
 ## Mensajes
+
+### Authentication Request
+
+```bash
+  HTTP/1.1 302 Found
+  Location: openid://?
+    scope=openid
+    &response_type=id_token
+    &client_id=https%3A%2F%2Fclient.example.org%2Fcb
+    &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
+    &id_token_type=subject_signed
+    &claims=...
+    &registration=%7B%22subject_syntax_types_supported%22%3A %5B%22urn%3Aietf%3Aparams%3Aoauth%3Ajwk-thumbprint%22%5D%2C%0A%20%20%20%20
+    %22id_token_signing_alg_values_supported%22%3A%5B%22ES256%22%5D%7D
+    &nonce=n-0S6_WzA2Mj
+```
 
 ## Software Bill of Material (SBOM)
 
