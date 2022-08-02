@@ -26,7 +26,6 @@ La siguiente figura ilustra donde se pone el foco del estudio.
 |[Verifiable Credential](https://www.npmjs.com/package/@cef-ebsi/verifiable-credential)| EBSI                              | Last Update: 02/08/22 |
 |[Verifiable Presentation](https://www.npmjs.com/package/@cef-ebsi/verifiable-presentation)| EBSI                              | Last Update: 02/08/22 |
 |[DID Resolver](https://www.npmjs.com/package/@cef-ebsi/ebsi-did-resolver)           | EBSI                              | Last Update: 01/08/22 |
-|-----------------------|----------------------------------|-----------------------|
 
 ## Referencias
 
