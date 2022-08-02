@@ -15,17 +15,22 @@ La siguiente figura ilustra donde se pone el foco del estudio.
 
 ## Mensajes
 
-## Selección de liberías de implementación
+## Software Bill of Material (SBOM)
 
 ```console
-+----------------------+--------+
-| Name                 | Status |
-+----------------------+--------+
-| CentOS-8             | active |
-| Fedora-CoreOS-34     | active |
-| Ubuntu-20.04         | active |
-| manila-service-image | active |
-+----------------------+--------+
++-----------------------+----------------------------------+-----------------------+
+| Library Name          |        Issuer                    |   Status              |
++-----------------------+----------------------------------+-----------------------+
+|SIOP DID Profile       |Decentralized Identity Foundation | Deprecated            |
+|EBSI SIOP Auth Library |EBSI                              | Last Update: 01/08/22 |
+|Verifiable Credential  |EBSI                              | Last Update: 02/08/22 |
+|Verifiable Presentation|EBSI                              | Last Update: 02/08/22 |
+|DID Resolver           |EBSI                              | Last Update: 01/08/22 |
++-----------------------+----------------------------------+-----------------------+
 ```
 
 ## Referencias
+
+1. [Where to begin with OIDC and SIOP](https://medium.com/decentralized-identity/where-to-begin-with-oidc-and-siop-7dd186c89796), Medium Article.
+2. [Self-Issued OpenID Provider v2](https://openid.net/specs/openid-connect-self-issued-v2-1_0.html), OpenID Standard.
+3. [OpenID for Verifiable Presentations](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html), OpenID Standard.
