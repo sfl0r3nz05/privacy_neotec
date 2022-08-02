@@ -31,6 +31,14 @@ La siguiente figura ilustra donde se pone el foco del estudio.
     &nonce=n-0S6_WzA2Mj
 ```
 
+### Authentication Respond
+
+```bash
+HTTP/1.1 302 Found
+  Location: https://client.example.org/cb#
+    id_token=...
+```
+
 ## Software Bill of Material (SBOM)
 
 | Library Name          |        Issuer                    |   Status              |
