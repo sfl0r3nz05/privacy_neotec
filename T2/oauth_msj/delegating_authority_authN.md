@@ -15,28 +15,56 @@ La siguiente figura ilustra donde se pone el foco del estudio.
 
 ## Mensajes
 
-### Authentication Request
+### Create Authentication Request
 
 ```bash
-  HTTP/1.1 302 Found
-  Location: openid://?
-    scope=openid
-    &response_type=id_token
-    &client_id=https%3A%2F%2Fclient.example.org%2Fcb
-    &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
-    &id_token_type=subject_signed
-    &claims=...
-    &registration=%7B%22subject_syntax_types_supported%22%3A %5B%22urn%3Aietf%3Aparams%3Aoauth%3Ajwk-thumbprint%22%5D%2C%0A%20%20%20%20
-    %22id_token_signing_alg_values_supported%22%3A%5B%22ES256%22%5D%7D
-    &nonce=n-0S6_WzA2Mj
+  openid://?response_type=id_token
+      &client_id=https%3A%2F%2Frp.example.com%2Fcb
+      &scope=openid%20did_authn
+      &request=<JWT>
 ```
 
-### Authentication Respond
+### verifyAuthenticationRequest
 
 ```bash
-HTTP/1.1 302 Found
-  Location: https://client.example.org/cb#
-    id_token=...
+```
+
+### resolveDID
+
+```bash
+```
+
+### Create Authentication Response
+
+Valida una respuesta de autenticación OAuth2 utilizando el protocolo AKE incluyendo el token de acceso en la respuesta y devuelve el token de *acceso descifrado*.
+
+```bash
+    HTTP/1.1 200 OK
+      Content-Type: application/json
+      Cache-Control: no-store
+      Pragma: no-cache
+      
+      {
+       "access_token": "SlAV32hkKG",
+       "token_type": "Bearer",
+       "expires_in": 3600,
+       "id_token": "..."
+      }
+```
+
+### Verify Authentication Response
+
+```bash
+```
+
+### Create AccessToken
+
+```bash
+```
+
+### Sessions verifyAccessToken
+
+```bash
 ```
 
 ## Software Bill of Material (SBOM)
