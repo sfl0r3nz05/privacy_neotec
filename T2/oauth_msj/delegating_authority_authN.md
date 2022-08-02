@@ -17,7 +17,6 @@ La siguiente figura ilustra donde se pone el foco del estudio.
 
 ## Software Bill of Material (SBOM)
 
-|-----------------------|----------------------------------|-----------------------|
 | Library Name          |        Issuer                    |   Status              |
 |-----------------------|----------------------------------|-----------------------|
 |[SIOP DID Profile](https://github.com/decentralized-identity/did-siop) | Decentralized Identity Foundation | Deprecated            |
