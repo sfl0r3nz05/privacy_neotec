@@ -108,13 +108,13 @@ Validar una respuesta de autenticación OAuth2 usando el protocolo AKE incluyend
 
 Valide el token de acceso:
 
-If the signature is valid, validate the JWT header 
+Si la firma es válida, se valida la cabecera JWT
 
 1. alg claim must be ES256K
 2. typ MUST be JWT
 3. kid MUST be a URI to the public signing key of the Authorisation API
 
-and the body:
+y se valida el cuerpo:
 
 4. iss claim MUST be "Authorisation API"
 5. sub claim MUST be application name that is accessing the endpoint. Sub claim is optional for entities.
