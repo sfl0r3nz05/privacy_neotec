@@ -26,7 +26,20 @@ La siguiente figura ilustra donde se pone el foco del estudio.
 
 ### verifyAuthenticationRequest
 
+Validar una solicitud de autenticación OAuth2 siguiendo esta RFC - DID-OAuth2 en EBSI V2
+
 ```bash
+    openid://?
+        scope=openid%20profile
+        &response_type=id_token
+        &client_id=https%3A%2F%2Fclient.example.org%2Fpost_cb
+        &redirect_uri=https%3A%2F%2Fclient.example.org%2Fpost_cb
+        &response_mode=post
+        &claims=...
+        &registration=%7B%22subject_syntax_types_supported%22%3A
+        %5B%22urn%3Aietf%3Aparams%3Aoauth%3Ajwk-thumbprint%22%5D%2C%0A%20%20%20%20
+        %22id_token_signing_alg_values_supported%22%3A%5B%22ES256%22%5D%7D
+        &nonce=n-0S6_WzA2Mj
 ```
 
 ### resolveDID
@@ -43,7 +56,7 @@ Valida una respuesta de autenticación OAuth2 utilizando el protocolo AKE incluy
       Content-Type: application/json
       Cache-Control: no-store
       Pragma: no-cache
-      
+
       {
        "access_token": "SlAV32hkKG",
        "token_type": "Bearer",
