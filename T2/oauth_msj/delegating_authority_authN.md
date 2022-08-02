@@ -17,6 +17,15 @@ La siguiente figura ilustra donde se pone el foco del estudio.
 
 ## Selección de liberías de implementación
 
-
+```console
++----------------------+--------+
+| Name                 | Status |
++----------------------+--------+
+| CentOS-8             | active |
+| Fedora-CoreOS-34     | active |
+| Ubuntu-20.04         | active |
+| manila-service-image | active |
++----------------------+--------+
+```
 
 ## Referencias
