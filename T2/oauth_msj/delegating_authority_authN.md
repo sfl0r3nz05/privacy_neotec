@@ -17,18 +17,16 @@ La siguiente figura ilustra donde se pone el foco del estudio.
 
 ## Software Bill of Material (SBOM)
 
-```
-+-----------------------+----------------------------------+-----------------------+
+|-----------------------|----------------------------------|-----------------------|
 | Library Name          |        Issuer                    |   Status              |
-+-----------------------+----------------------------------+-----------------------+
-| [SIOP DID Profile](https://github.com/decentralized-identity/did-siop) | Decentralized Identity Foundation | Deprecated            |
-| Self Issued OpenID Provider v2 (SIOP)| Sphereon-Opensource| Last Update: 05/07/22 |
-| EBSI SIOP Auth Library | EBSI                              | Last Update: 01/08/22 |
-| Verifiable Credential  | EBSI                              | Last Update: 02/08/22 |
-| Verifiable Presentation| EBSI                              | Last Update: 02/08/22 |
-| DID Resolver           | EBSI                              | Last Update: 01/08/22 |
-+-----------------------+----------------------------------+-----------------------+
-```
+|-----------------------|----------------------------------|-----------------------|
+|[SIOP DID Profile](https://github.com/decentralized-identity/did-siop) | Decentralized Identity Foundation | Deprecated            |
+|[Self Issued OpenID Provider v2 (SIOP)](https://github.com/Sphereon-Opensource/did-auth-siop)| Sphereon-Opensource| Last Update: 05/07/22 |
+|[EBSI SIOP Auth Library](https://www.npmjs.com/package/@cef-ebsi/siop-auth)| EBSI                              | Last Update: 01/08/22 |
+|[Verifiable Credential](https://www.npmjs.com/package/@cef-ebsi/verifiable-credential)| EBSI                              | Last Update: 02/08/22 |
+|[Verifiable Presentation](https://www.npmjs.com/package/@cef-ebsi/verifiable-presentation)| EBSI                              | Last Update: 02/08/22 |
+|[DID Resolver](https://www.npmjs.com/package/@cef-ebsi/ebsi-did-resolver)           | EBSI                              | Last Update: 01/08/22 |
+|-----------------------|----------------------------------|-----------------------|
 
 ## Referencias
 
