@@ -27,7 +27,6 @@ La siguiente figura ilustra donde se pone el foco del estudio.
 |        |<--------(5) UserInfo Response-----|        |
 |        |                                   |        |
 +--------+                                   +--------+
-+------+                                           +----------------+
 ```
 
 1. The RP (Client) sends a request to the OpenID Provider (OP).
@@ -57,7 +56,7 @@ La siguiente figura ilustra donde se pone el foco del estudio.
 +------+                                           +----------------+
 ```
 
-## Arquitectura de 
+## Arquitectura de Self-Issued OpenID Provider
 
    ![alt text](./img/did-oidc_siop_v2.png "Focus")
 
