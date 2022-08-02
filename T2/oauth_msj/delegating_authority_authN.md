@@ -17,6 +17,8 @@ La siguiente figura ilustra donde se pone el foco del estudio.
 
 ### Create Authentication Request
 
+La Relying Party (RP) llama a *createAuthenticationRequest* para generar una URL con un token de solicitud de autenticación DID incrustado en la URL.
+
 ```bash
   openid://?response_type=id_token
       &client_id=https%3A%2F%2Frp.example.com%2Fcb
@@ -44,7 +46,42 @@ Validar una solicitud de autenticación OAuth2 siguiendo esta RFC - DID-OAuth2 e
 
 ### resolveDID
 
+Dado un DID, intenta resolver si es un DID de EBSI (did:ebsi:0x..) al usuario de la API de DID de EBSI, o utiliza el Resolutor de DID Universal para resolverlo.
+
+**Input:**
+
 ```bash
+    const didDocument = VerifiablePresentationLib.resolveDid("did:ebsi:0xE3f80bcbb360F04865AfA795B7507d384154216C");
+```
+
+**Output:**
+
+```bash
+    console.log(didDocument);
+    {
+          "@context": "https://w3id.org/did/v1",
+          "id": "did:ebsi:0xE3f80bcbb360F04865AfA795B7507d384154216C",
+          "controller": "did:ebsi:0xE3f80bcbb360F04865AfA795B7507d384154216C",
+          "authentication": [
+            {
+              "type": "EcdsaSecp256k1VerificationKey2019",
+              "publicKey": "did:ebsi:0xE3f80bcbb360F04865AfA795B7507d384154216C#key-1"
+            }
+          ],
+          "verificationMethod": [
+            {
+              "id": "did:ebsi:0xE3f80bcbb360F04865AfA795B7507d384154216C#key-1",
+              "type": "EcdsaSecp256k1VerificationKey2019",
+              "controller": "did:ebsi:0xE3f80bcbb360F04865AfA795B7507d384154216C",
+              "publicKeyJwk": {
+                "kty": "EC",
+                "crv": "secp256k1",
+                "x": "62451c7a3e0c6e2276960834b79ae491ba0a366cd6a1dd814571212ffaeaaf5a",
+                "y": "1ede3d754090437db67eca78c1659498c9cf275d2becc19cdc8f1ef76b9d8159"
+              }
+            }
+          ]
+        }
 ```
 
 ### Create Authentication Response
@@ -67,18 +104,34 @@ Valida una respuesta de autenticación OAuth2 utilizando el protocolo AKE incluy
 
 ### Verify Authentication Response
 
-```bash
-```
+Validar una respuesta de autenticación OAuth2 usando el protocolo AKE incluyendo el Access Token en la respuesta y devuelve el Access Token descifrado.
+
+Valide el token de acceso:
+
+If the signature is valid, validate the JWT header 
+
+1. alg claim must be ES256K
+2. typ MUST be JWT
+3. kid MUST be a URI to the public signing key of the Authorisation API
+
+and the body:
+
+4. iss claim MUST be "Authorisation API"
+5. sub claim MUST be application name that is accessing the endpoint. Sub claim is optional for entities.
+6. aud claim MUST be the resource app name.
+7. atHash claim MUST be hash of the access token
+8. iat/exp claims MUST be the issuance and expiry dates
+9.  nonce claim MUST be a random string
+
 
 ### Create AccessToken
 
-```bash
-```
+Crea un nuevo objeto de sesión, devolviendo el token de acceso utilizando el protocolo AKE.
+
 
 ### Sessions verifyAccessToken
 
-```bash
-```
+Un componente EBSI (servidor de recursos) recibe un token de acceso como portador de un cliente para acceder a un recurso protegido, y llama a la biblioteca para verificar el token de sesión siguiendo este proceso de validación, comprobando que es emitido por el componente de autorización.
 
 ## Software Bill of Material (SBOM)
 
