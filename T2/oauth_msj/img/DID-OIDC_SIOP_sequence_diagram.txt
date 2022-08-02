@@ -1,0 +1,70 @@
+@startuml
+!theme united
+header DID-OIDC SIOP DID Flow
+ 
+box "NP/LE"
+participant "Natural Person\nLegal Entity\nSIOP Client" as A order 0
+participant "SIOP Auth lib" as libN order 1
+participant "OAuth2 Auth lib" as lib1N order 1
+end box
+box "Authorisation Component"
+participant "Authorisation API" as auth order 2
+participant "SIOP Auth lib" as libA order 3
+participant "OAuth2 Auth lib" as libAA order 4
+end box
+box "Component B"
+participant "Component B /protected-resources\nResource Server" as B order 5
+participant "OAuth2 Auth lib" as libB order 6
+end box
+participant "DID Registry" as DIDR order 7
+ 
+A -> auth: POST /authentication-requests
+activate auth
+auth -> libA: createAuthenticationRequest
+libA --> auth: URI + <Request Token>
+auth -->A: URI + <Request Token>
+deactivate auth
+A -> libN: verifyAuthenticationRequest
+activate libN
+libN -> DIDR: resolveDid
+DIDR --> libN: DIDDocument with public key
+libN -> libN: verify using\npublic key
+libN --> A: payload
+deactivate libN
+A -> libN: createAuthenticationResponse
+activate libN
+libN --> A: URI + <id_token>
+deactivate libN
+A -> auth: POST <id_token>\n/siop-sessions
+activate auth
+auth -> libA: verifyAuthenticationResponse\n <id_token>
+activate libA
+libA -> DIDR: resolveDid
+DIDR --> libA: DIDDocument with public key
+libA -> libA: verify using\npublic key
+libA --> auth: payload
+deactivate libA
+auth -> libAA: new Session()
+activate libAA
+libAA --> auth: Session object
+auth -> libAA: createAccessToken\n<AKE Access Token>
+libAA --> auth: <AKE Access Token>
+deactivate libAA
+A <-- auth: HTTP 200: <AKE Access Token>
+deactivate auth
+A -> lib1N : /verifyAuthenticationResponse\n<AKE Access Token>
+activate lib1N
+lib1N -> A : decrypted <Access Token>
+deactivate lib1N
+A -> B: POST /protected-resources\n<Access Token>
+activate B
+B -> libB: new Session()
+activate libB
+libB --> B: Session object
+B -> libB: verifyAccessToken\n<Access Token>
+libB --> B: OK
+deactivate libB
+B -> B: execute granted access
+B -> A: Return with execution result
+deactivate B
+@enduml
