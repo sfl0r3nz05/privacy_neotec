@@ -1,5 +1,21 @@
 # Flujo de mensajes OAuth
 
+- [Flujo de mensajes OAuth](#flujo-de-mensajes-oauth)
+  - [Foco de informe](#foco-de-informe)
+    - [Flujo del protocolo: Entorno centralizado/federado](#flujo-del-protocolo-entorno-centralizadofederado)
+    - [Flujo del protocolo: Self-Issued OpenID Provider](#flujo-del-protocolo-self-issued-openid-provider)
+  - [Arquitectura de Self-Issued OpenID Provider](#arquitectura-de-self-issued-openid-provider)
+  - [Mensajes](#mensajes)
+    - [Create Authentication Request](#create-authentication-request)
+    - [verifyAuthenticationRequest](#verifyauthenticationrequest)
+    - [resolveDID](#resolvedid)
+    - [Create Authentication Response](#create-authentication-response)
+    - [Verify Authentication Response](#verify-authentication-response)
+    - [Create AccessToken](#create-accesstoken)
+    - [Sessions verifyAccessToken](#sessions-verifyaccesstoken)
+  - [Software Bill of Material (SBOM)](#software-bill-of-material-sbom)
+  - [Referencias](#referencias)
+
 ## Foco de informe
 
 La siguiente figura ilustra donde se pone el foco del estudio.
