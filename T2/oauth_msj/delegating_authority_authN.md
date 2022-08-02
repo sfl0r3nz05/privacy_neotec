@@ -17,7 +17,6 @@ La siguiente figura ilustra donde se pone el foco del estudio.
 
 ## Software Bill of Material (SBOM)
 
-```console
 +-----------------------+----------------------------------+-----------------------+
 | Library Name          |        Issuer                    |   Status              |
 +-----------------------+----------------------------------+-----------------------+
@@ -28,7 +27,7 @@ La siguiente figura ilustra donde se pone el foco del estudio.
 |Verifiable Presentation|EBSI                              | Last Update: 02/08/22 |
 |DID Resolver           |EBSI                              | Last Update: 01/08/22 |
 +-----------------------+----------------------------------+-----------------------+
-```
+
 
 ## Referencias
 
