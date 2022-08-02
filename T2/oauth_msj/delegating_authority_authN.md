@@ -6,7 +6,58 @@ La siguiente figura ilustra donde se pone el foco del estudio.
 
    ![alt text](./img/focus.png "Focus")
 
-## Arquitectura
+### Flujo del protocolo: Entorno centralizado/federado
+
+```bash
++--------+                                   +--------+
+|        |                                   |        |
+|        |---------(1) AuthN Request-------->|        |
+|        |                                   |        |
+|        |  +--------+                       |        |
+|        |  |        |                       |        |
+|        |  |  End-  |<--(2) AuthN & AuthZ-->|        |
+|        |  |  User  |                       |        |
+|   RP   |  |        |                       |   OP   |
+|        |  +--------+                       |        |
+|        |                                   |        |
+|        |<--------(3) AuthN Response--------|        |
+|        |                                   |        |
+|        |---------(4) UserInfo Request----->|        |
+|        |                                   |        |
+|        |<--------(5) UserInfo Response-----|        |
+|        |                                   |        |
++--------+                                   +--------+
++------+                                           +----------------+
+```
+
+1. The RP (Client) sends a request to the OpenID Provider (OP).
+2. The OP authenticates the End-User and obtains authorization.
+3. The OP responds with an ID Token and usually an Access Token.
+4. The RP can send a request with the Access Token to the UserInfo Endpoint.
+5. The UserInfo Endpoint returns Claims about the End-User.
+
+### Flujo del protocolo: Self-Issued OpenID Provider
+
+```bash
++------+                                           +----------------+
+|      |                                           |                |
+|      |--(1) Self-Issued OpenID Provider Request->|                |
+|      |     (Authentication Request)              |                |
+|      |                                           |                |
+|      |       +----------+                        |                |
+|      |       |          |                        |                |
+|      |       | End-User |                        |                |
+|  RP  |       |          |<--(2) AuthN & AuthZ--->| Self-Issued OP |
+|      |       |          |                        |                |
+|      |       +----------+                        |                |
+|      |                                           |                |
+|      |<-(3) Self-Issued OpenID Provider Response-|                |
+|      |      (Self-Issued ID Token)               |                |
+|      |                                           |                |
++------+                                           +----------------+
+```
+
+## Arquitectura de 
 
    ![alt text](./img/did-oidc_siop_v2.png "Focus")
 
